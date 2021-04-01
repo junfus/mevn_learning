@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,6 +25,16 @@ mongoose
   })
   .then(() => console.log(`Connected to MongoDB at ${process.env.DB_URI}`))
   .catch((err) => console.log(err));
+
+// handle production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.resolve(__dirname, "./public")));
+
+  // handle SPA
+  app.get(/.*/, (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./public/index.html"));
+  });
+}
 
 // start server
 app.listen(port, () =>
