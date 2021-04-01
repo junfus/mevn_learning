@@ -43,7 +43,7 @@ export default {
     drawer: null,
     items: [
       { title: "表格", icon: mdiTable, link: "/" },
-      { title: "表名", icon: mdiFormatListBulleted, link: "/api/category" },
+      { title: "表名", icon: mdiFormatListBulleted, link: "/category" },
     ],
   }),
 };

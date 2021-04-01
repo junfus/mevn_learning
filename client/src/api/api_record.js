@@ -14,7 +14,7 @@ export default class RecordAPI {
   }
 
   static async getAllRecordsByCategory(cid) {
-    const res = await axios.get(`${url}/category=${cid}`);
+    const res = await axios.get(`${url}/cid/${cid}`);
     return res.data;
   }
 

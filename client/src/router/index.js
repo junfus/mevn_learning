@@ -13,12 +13,12 @@ const routes = [
     component: Home,
   },
   {
-    path: "/api/category",
+    path: "/category",
     name: "category",
     component: Category,
   },
   {
-    path: "/api/record/category=:cid",
+    path: "/record/:cid",
     name: "record",
     component: Record,
   },

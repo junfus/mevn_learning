@@ -3,7 +3,7 @@ const API = require("../api/api_record");
 const router = express.Router();
 
 router.get("/all", API.getAllRecordsIncludesDeletion);
-router.get("/cid/:cid", API.getAllRecordsByCategory);
+router.get("/category=:cid", API.getAllRecordsByCategory);
 router.get("/", API.getAllRecords);
 router.get("/:id", API.getRecordById);
 router.post("/", API.createRecord);
