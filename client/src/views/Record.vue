@@ -118,12 +118,6 @@
         </span>
       </template>
 
-      <template #[`item.date`]="{ item }">
-        <span>
-          {{ moment(item.date).format("YYYY-MM-DD") }}
-        </span>
-      </template>
-
       <template #[`item.update`]="{ item }">
         <v-btn small color="green" dark @click="editItem(item)">
           <v-icon dark left>
@@ -280,6 +274,7 @@ export default {
             comments: this.editedItem.comments,
           };
           const result = await RecordAPI.createRecord(body);
+          result.date = moment(result.date).format("YYYY-MM-DD");
           result.categoryName = this.category.name;
           result.out = this.category.out;
           result.unit = this.category.unit;
